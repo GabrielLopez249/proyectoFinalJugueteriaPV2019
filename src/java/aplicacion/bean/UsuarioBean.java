@@ -23,7 +23,7 @@ public class UsuarioBean {
     public UsuarioBean() {
     }
     public Usuario validarUsuario(String nombreUs, String passwUs){
-        Usuario usuario=null;
+        Usuario usuario;
         UsuarioDao usuarioDAO=new UsuarioDaoImp();
         usuario=usuarioDAO.validarUsuario(nombreUs, passwUs);
         return usuario;
@@ -33,4 +33,11 @@ public class UsuarioBean {
         UsuarioDao usuarioDao=new UsuarioDaoImp();
         return usuarioDao.obtenerUsuario(nombreUsuario);
     }
+    
+    public void crearUsuario(Usuario usuario){
+      UsuarioDao usuarioDAO=new UsuarioDaoImp();
+      usuarioDAO.crearUsuario(usuario);
+    }
+        
+        
 }

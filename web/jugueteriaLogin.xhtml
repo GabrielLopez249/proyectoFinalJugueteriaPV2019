@@ -15,8 +15,9 @@
                             <p:inputText id="nombreUsuario" required="true" value="#{loginFormBean.nombreUs}"/>
                             <p:outputLabel for="passwUsuario" value="Contraseña"/>
                             <p:password id="passwUsuario" required="true" value="#{loginFormBean.passwUs}"/>
-                            <p:commandButton id="botonValidar" value="Validar Uuario" update="frmLogin" action="#{loginFormBean.consultarUsuario()}"/>
-                        </h:panelGrid>
+                            <p:commandButton id="botonValidar" value="Ingresar Usuario" update="frmLogin" action="#{loginFormBean.consultarUsuario()}"/>
+                            <p:commandButton id="botonCrear" value="Registrar Nuevo Usuario" update="frmLogin" action="#{loginFormBean}"/>
+                        </h:panelGrid>                       
                     </p:growl>
                 </h:form>
             </p:panel>

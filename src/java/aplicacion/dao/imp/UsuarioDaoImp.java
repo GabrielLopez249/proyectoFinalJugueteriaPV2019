@@ -19,12 +19,13 @@ import org.hibernate.criterion.Restrictions;
 public class UsuarioDaoImp implements UsuarioDao{
 
     @Override
-    public Usuario validarUsuario(String nombreUsuario, String password) {
+    public Usuario validarUsuario(String nombreUs, String passUs) {
         Usuario u = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
         Criteria criteria=session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.like("usuNombreUsuario", nombreUsuario));
-        criteria.add(Restrictions.like("usuPassword", password));
+        criteria.add(Restrictions.like("nombreUsuario", nombreUs));
+        criteria.add(Restrictions.like("password", passUs));
         criteria.add(Restrictions.like("estado", true));
         if(!criteria.list().isEmpty()){
             u=(Usuario)criteria.list().get(0);            
@@ -35,11 +36,11 @@ public class UsuarioDaoImp implements UsuarioDao{
     }
 
     @Override
-    public Usuario obtenerUsuario(String nombreUsuario) {
+    public Usuario obtenerUsuario(String nombreUs) {
         Usuario u = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria=session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.like("usuNombreUsuario", nombreUsuario));
+        criteria.add(Restrictions.like("nombreUsuario", nombreUs));
         if(!criteria.list().isEmpty()){
             u=(Usuario)criteria.list().get(0);            
         }
@@ -52,5 +53,14 @@ public class UsuarioDaoImp implements UsuarioDao{
     public void modificar(Usuario unUsuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public void crearUsuario(Usuario unUsuario) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(unUsuario);
+        session.getTransaction().commit();
+        session.close();
+    }
+
 }

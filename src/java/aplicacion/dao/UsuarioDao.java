@@ -15,5 +15,6 @@ public interface UsuarioDao {
     
     Usuario validarUsuario(String nombreUsuario, String password);
     Usuario obtenerUsuario(String nombreUsuario);
+    void crearUsuario(Usuario unUsuario);
     void modificar(Usuario unUsuario);
 }

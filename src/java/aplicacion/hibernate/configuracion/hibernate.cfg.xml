@@ -7,6 +7,12 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3300/proyecto?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">pasareltiempo1.</property>
+    <mapping resource="aplicacion/hibernate/mapeos/Factura.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/mapeos/Productos.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/mapeos/Detalle.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/mapeos/Clientes.hbm.xml"/>
     <mapping resource="aplicacion/hibernate/mapeos/Usuarios.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/mapeos/Categorias.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/mapeos/Modopago.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
