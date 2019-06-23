@@ -12,7 +12,7 @@ public class Usuario  implements java.io.Serializable {
 
 
      private int codigo;
-     private Clientes clientes;
+     private Cliente clientes;
      private String nombreUsuario;
      private String password;
      private String tipoUsuario;
@@ -25,11 +25,11 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int codigo, Clientes clientes) {
+    public Usuario(int codigo, Cliente clientes) {
         this.codigo = codigo;
         this.clientes = clientes;
     }
-    public Usuario(int codigo, Clientes clientes, String nombreUsuario, String password, String tipoUsuario, String apellidos, String nombres, Boolean estado, Set facturas) {
+    public Usuario(int codigo, Cliente clientes, String nombreUsuario, String password, String tipoUsuario, String apellidos, String nombres, Boolean estado, Set facturas) {
        this.codigo = codigo;
        this.clientes = clientes;
        this.nombreUsuario = nombreUsuario;
@@ -48,11 +48,11 @@ public class Usuario  implements java.io.Serializable {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    public Clientes getClientes() {
+    public Cliente getClientes() {
         return this.clientes;
     }
     
-    public void setClientes(Clientes clientes) {
+    public void setClientes(Cliente clientes) {
         this.clientes = clientes;
     }
     public String getNombreUsuario() {

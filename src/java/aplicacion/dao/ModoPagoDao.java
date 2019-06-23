@@ -5,13 +5,14 @@
  */
 package aplicacion.dao;
 
-import aplicacion.modelo.dominio.Cliente;
+import aplicacion.modelo.dominio.Modopago;
 
 /**
  *
  * @author gabri
  */
-public interface ClienteDao {
-    void agregarCliente(Cliente unCiente);
-    void modificarCliente(Cliente unCliente);
+public interface ModoPagoDao {
+    public void agregarModoPago(Modopago unMPago);
+    public void modificarMP(Modopago unMpago);
+    public void eliminarMP(Modopago unMpago);
 }

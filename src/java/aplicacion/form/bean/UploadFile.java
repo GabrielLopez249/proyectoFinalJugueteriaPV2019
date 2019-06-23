@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion.dao;
-
-import aplicacion.modelo.dominio.Cliente;
+package aplicacion.form.bean;
 
 /**
  *
  * @author gabri
  */
-public interface ClienteDao {
-    void agregarCliente(Cliente unCiente);
-    void modificarCliente(Cliente unCliente);
+class UploadFile {
+    
 }

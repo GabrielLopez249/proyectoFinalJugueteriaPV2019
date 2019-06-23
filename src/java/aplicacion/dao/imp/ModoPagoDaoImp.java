@@ -5,31 +5,40 @@
  */
 package aplicacion.dao.imp;
 
-import aplicacion.dao.ClienteDao;
+import aplicacion.dao.ModoPagoDao;
 import aplicacion.hibernate.configuracion.HibernateUtil;
-import aplicacion.modelo.dominio.Cliente;
+import aplicacion.modelo.dominio.Modopago;
 import org.hibernate.Session;
 
 /**
  *
  * @author gabri
  */
-public class ClienteDaoImp implements ClienteDao{
+public class ModoPagoDaoImp implements ModoPagoDao{
 
     @Override
-    public void agregarCliente(Cliente unCliente) {
-       Session session= HibernateUtil.getSessionFactory().openSession();
+    public void agregarModoPago(Modopago unMPago) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(unCliente);
+        session.save(unMPago);
         session.getTransaction().commit();
         session.close();
     }
 
     @Override
-    public void modificarCliente(Cliente unCliente) {
+    public void modificarMP(Modopago unMpago) {
         Session session= HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.update(unCliente);
+        session.update(unMpago);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void eliminarMP(Modopago unMpago) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(unMpago);
         session.getTransaction().commit();
         session.close();
     }

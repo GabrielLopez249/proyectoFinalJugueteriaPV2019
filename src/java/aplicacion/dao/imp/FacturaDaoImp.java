@@ -5,31 +5,40 @@
  */
 package aplicacion.dao.imp;
 
-import aplicacion.dao.ClienteDao;
+import aplicacion.dao.FacturaDao;
 import aplicacion.hibernate.configuracion.HibernateUtil;
-import aplicacion.modelo.dominio.Cliente;
+import aplicacion.modelo.dominio.Factura;
 import org.hibernate.Session;
 
 /**
  *
  * @author gabri
  */
-public class ClienteDaoImp implements ClienteDao{
+public class FacturaDaoImp implements FacturaDao{
 
     @Override
-    public void agregarCliente(Cliente unCliente) {
-       Session session= HibernateUtil.getSessionFactory().openSession();
+    public void agregarFartura(Factura unaFactura) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(unCliente);
+        session.save(unaFactura);
         session.getTransaction().commit();
         session.close();
     }
 
     @Override
-    public void modificarCliente(Cliente unCliente) {
+    public void modificarFactura(Factura unaFactura) {
         Session session= HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.update(unCliente);
+        session.update(unaFactura);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void eliminarFactura(Factura unaFactura) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(unaFactura);
         session.getTransaction().commit();
         session.close();
     }

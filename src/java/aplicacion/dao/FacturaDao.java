@@ -5,13 +5,14 @@
  */
 package aplicacion.dao;
 
-import aplicacion.modelo.dominio.Cliente;
+import aplicacion.modelo.dominio.Factura;
 
 /**
  *
  * @author gabri
  */
-public interface ClienteDao {
-    void agregarCliente(Cliente unCiente);
-    void modificarCliente(Cliente unCliente);
+public interface FacturaDao {
+    public void agregarFartura(Factura unaFactura);
+    public void modificarFactura(Factura unaFactura);
+    public void eliminarFactura(Factura unaFactura);
 }

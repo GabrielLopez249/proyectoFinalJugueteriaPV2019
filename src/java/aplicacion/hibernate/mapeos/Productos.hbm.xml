@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 06/06/2019 15:45:02 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="proyecto" name="aplicacion.modelo.dominio.Productos" optimistic-lock="version" table="productos">
+  <class catalog="proyecto" name="aplicacion.modelo.dominio.Producto" optimistic-lock="version" table="productos">
     <id name="codProducto" type="int">
       <column name="codProducto"/>
       <generator class="assigned"/>
     </id>
-    <many-to-one class="aplicacion.modelo.dominio.Categorias" fetch="select" name="categorias">
+    <many-to-one class="aplicacion.modelo.dominio.Categoria" fetch="select" name="categorias">
       <column name="categorias_idcategoria" not-null="true"/>
     </many-to-one>
     <property name="descripcion" type="string">
@@ -19,6 +19,9 @@
     <property name="stock" type="java.lang.Integer">
       <column name="stock"/>
     </property>
+    <property name="foto" type="byte[]">
+      <column name="foto"/>
+    </property>    
     <set fetch="select" inverse="true" lazy="true" name="detalles" table="detalle">
       <key>
         <column name="productos_codProducto" not-null="true"/>

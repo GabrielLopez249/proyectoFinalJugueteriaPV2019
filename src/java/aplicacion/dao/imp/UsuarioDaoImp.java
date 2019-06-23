@@ -51,7 +51,12 @@ public class UsuarioDaoImp implements UsuarioDao{
 
     @Override
     public void modificar(Usuario unUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(unUsuario);
+        session.getTransaction().commit();
+        session.close();
+        
     }
 
     @Override

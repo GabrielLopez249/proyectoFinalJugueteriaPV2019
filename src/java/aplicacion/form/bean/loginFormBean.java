@@ -6,7 +6,7 @@
 package aplicacion.form.bean;
 
 import aplicacion.bean.UsuarioBean;
-import aplicacion.modelo.dominio.Clientes;
+import aplicacion.modelo.dominio.Cliente;
 import aplicacion.modelo.dominio.Usuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -25,7 +25,7 @@ public class loginFormBean {
     private UsuarioBean usuarioBean;
     private String nombreUs;
     private String passwUs;
-    Clientes cliente;
+    Cliente cliente;
     /**
      * Creates a new instance of loginFormBean
      */
@@ -43,7 +43,10 @@ public class loginFormBean {
              FacesMessage facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Credenciales validas","usuario valido");
           FacesContext.getCurrentInstance().addMessage(null,facesMessage);
           FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioValidado",us);
-          resultado="/bienvenido";
+          if (us.getTipoUsuario().equals("admin"))
+              resultado="administrador?faces-redirect=true";
+          else
+              resultado= "listadoProductos";
         }
         return resultado;
     }
@@ -55,24 +58,8 @@ public class loginFormBean {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         FacesMessage facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Sesion Cerrada","Sesion Cerrada");
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
-        String resultado="/login";
+        String resultado="jugueteriaLogin";
         return resultado;
-    }
-        public int verificarSesion(){
-        boolean sesionValida=false;
-        int tipo=0;
-        Usuario usuario=(Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuarioValidado");
-        if (usuario!=null){
-            sesionValida=true;
-            if (usuario.getTipoUsuario().equals("cliente"))
-                tipo=1;
-        
-            if (usuario.getTipoUsuario().equals("admin"))
-            {
-                tipo=2;
-            } 
-        }
-        return tipo;
     }
 
     /**

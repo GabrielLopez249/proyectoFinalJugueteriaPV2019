@@ -2,7 +2,7 @@ package aplicacion.modelo.dominio;
 // Generated 06/06/2019 15:45:01 by Hibernate Tools 4.3.1
 
 import aplicacion.modelo.dominio.Factura;
-import aplicacion.modelo.dominio.Productos;
+import aplicacion.modelo.dominio.Producto;
 
 
 
@@ -15,7 +15,7 @@ public class Detalle  implements java.io.Serializable {
 
      private int iddetalle;
      private Factura factura;
-     private Productos productos;
+     private Producto productos;
      private Integer cantidad;
      private String precioProdCant;
 
@@ -23,12 +23,12 @@ public class Detalle  implements java.io.Serializable {
     }
 
 	
-    public Detalle(int iddetalle, Factura factura, Productos productos) {
+    public Detalle(int iddetalle, Factura factura, Producto productos) {
         this.iddetalle = iddetalle;
         this.factura = factura;
         this.productos = productos;
     }
-    public Detalle(int iddetalle, Factura factura, Productos productos, Integer cantidad, String precioProdCant) {
+    public Detalle(int iddetalle, Factura factura, Producto productos, Integer cantidad, String precioProdCant) {
        this.iddetalle = iddetalle;
        this.factura = factura;
        this.productos = productos;
@@ -50,11 +50,11 @@ public class Detalle  implements java.io.Serializable {
     public void setFactura(Factura factura) {
         this.factura = factura;
     }
-    public Productos getProductos() {
+    public Producto getProductos() {
         return this.productos;
     }
     
-    public void setProductos(Productos productos) {
+    public void setProductos(Producto productos) {
         this.productos = productos;
     }
     public Integer getCantidad() {

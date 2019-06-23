@@ -7,7 +7,7 @@ package aplicacion.bean;
 
 import aplicacion.dao.ClienteDao;
 import aplicacion.dao.imp.ClienteDaoImp;
-import aplicacion.modelo.dominio.Clientes;
+import aplicacion.modelo.dominio.Cliente;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -22,7 +22,7 @@ public class ClienteBean {
     
     public ClienteBean() {
     }
-    public void crearUsuario(Clientes cliente){
+    public void crearUsuario(Cliente cliente){
       ClienteDao clienteDAO=new ClienteDaoImp();
       clienteDAO.agregarCliente(cliente);
     }

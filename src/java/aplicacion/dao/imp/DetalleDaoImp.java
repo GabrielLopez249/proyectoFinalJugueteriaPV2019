@@ -5,31 +5,40 @@
  */
 package aplicacion.dao.imp;
 
-import aplicacion.dao.ClienteDao;
+import aplicacion.dao.DetalleDao;
 import aplicacion.hibernate.configuracion.HibernateUtil;
-import aplicacion.modelo.dominio.Cliente;
+import aplicacion.modelo.dominio.Detalle;
 import org.hibernate.Session;
 
 /**
  *
  * @author gabri
  */
-public class ClienteDaoImp implements ClienteDao{
+public class DetalleDaoImp implements DetalleDao{
 
     @Override
-    public void agregarCliente(Cliente unCliente) {
-       Session session= HibernateUtil.getSessionFactory().openSession();
+    public void agregarDetalle(Detalle unDetalle) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(unCliente);
+        session.save(unDetalle);
         session.getTransaction().commit();
         session.close();
     }
 
     @Override
-    public void modificarCliente(Cliente unCliente) {
+    public void modificarDetalle(Detalle unDetalle) {
         Session session= HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.update(unCliente);
+        session.update(unDetalle);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void eliminarDetallle(Detalle unDetalle) {
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(unDetalle);
         session.getTransaction().commit();
         session.close();
     }
