@@ -98,7 +98,7 @@ public class Producto  implements java.io.Serializable {
     /**
      * @return the estado
      */
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
