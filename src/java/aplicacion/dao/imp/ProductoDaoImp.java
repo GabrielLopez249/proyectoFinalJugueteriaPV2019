@@ -47,8 +47,16 @@ public class ProductoDaoImp implements ProductoDao{
     }
 
     @Override
-    public ArrayList<Producto> buscarProducto(int codProducto) {
-        ArrayList<Producto> u = null;
+    public Producto buscarProducto(int codProducto) {
+        Producto u = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria=session.createCriteria(Producto.class);
+        criteria.add(Restrictions.like("CodigaProducto", codProducto));
+        if(!criteria.list().isEmpty()){
+            u=(Producto)criteria.list().get(0);            
+        }
+        session.getTransaction().commit();
+        session.close();
         return u;  
     }
     

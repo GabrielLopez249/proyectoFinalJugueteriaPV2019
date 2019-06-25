@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion.form.bean;
+package validator.aplicacion;
 
 import java.util.Map;
 import java.util.regex.Pattern;

@@ -10,5 +10,19 @@ package aplicacion.form.bean;
  * @author gabri
  */
 class UploadFile {
-    
+    private byte[] contents;
+
+    /**
+     * @return the contents
+     */
+    public byte[] getContents() {
+        return contents;
+    }
+
+    /**
+     * @param contents the contens to set
+     */
+    public void setContens(byte[] contents) {
+        this.contents = contents;
+    }
 }

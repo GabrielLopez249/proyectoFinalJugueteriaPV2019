@@ -50,10 +50,6 @@ public class loginFormBean {
         }
         return resultado;
     }
-    public String getNombreUsuarioValidado(){
-        Usuario usuario=(Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuarioValidado");
-        return usuario.getNombreUsuario();
-    }
     public String cerrarSesion(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         FacesMessage facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Sesion Cerrada","Sesion Cerrada");

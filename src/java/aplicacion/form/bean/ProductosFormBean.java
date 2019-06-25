@@ -5,6 +5,7 @@
  */
 package aplicacion.form.bean;
 
+
 import aplicacion.bean.ProductoBean;
 import aplicacion.modelo.dominio.Categoria;
 import aplicacion.modelo.dominio.Producto;
@@ -28,7 +29,7 @@ public class ProductosFormBean {
     private Producto unProducto;
     private ArrayList<Categoria> categorias;
     private transient UploadFile archivo = null;
-    
+    private int codProd;
     public ProductosFormBean() {
     }
     @PostConstruct
@@ -36,7 +37,7 @@ public class ProductosFormBean {
         getUnProducto().setEstado(true);
         
         if(getArchivo() != null){
-            byte[] contents = getArchivo.getContents();
+            byte[] contents = getArchivo().getContents();
             getUnProducto().setFoto(contents);
         }
        else
@@ -53,7 +54,21 @@ public class ProductosFormBean {
         }
             setUnProducto(new Producto());
     }
-
+    public String consultarProducto(){
+        String resultado=null;
+        Producto us = productoBean.obtenerProducto(codProd);
+        if(us==null){
+            FacesMessage facesMessage=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Producto Invalido","No existe el producto");
+          FacesContext.getCurrentInstance().addMessage(null,facesMessage);
+        }
+        else{
+             FacesMessage facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Producto valido","Producto existe");
+          FacesContext.getCurrentInstance().addMessage(null,facesMessage);
+          FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Producto",us);
+          
+        }
+        return resultado;
+    }
     /**
      * @return the unProducto
      */
@@ -108,5 +123,19 @@ public class ProductosFormBean {
      */
     public void setArchivo(UploadFile archivo) {
         this.archivo = archivo;
+    }
+
+    /**
+     * @return the codProd
+     */
+    public int getCodProd() {
+        return codProd;
+    }
+
+    /**
+     * @param codProd the codProd to set
+     */
+    public void setCodProd(int codProd) {
+        this.codProd = codProd;
     }
 }

@@ -26,4 +26,8 @@ public class ProductoBean {
       ProductoDao productoDAO=new ProductoDaoImp();
       productoDAO.agregarProducto(UnP);
     }
+    public Producto obtenerProducto(int CodProducto){
+        ProductoDao productoDao=new ProductoDaoImp();
+        return productoDao.buscarProducto(CodProducto);
+    }
 }

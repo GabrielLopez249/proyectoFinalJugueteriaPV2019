@@ -16,5 +16,6 @@ public interface ProductoDao {
     public void agregarProducto(Producto unP);
     public void modificarProducto(Producto unP);
     public void eliminarProducto(Producto unP);
-    public ArrayList<Producto> buscarProducto(int codProducto);
+    public Producto buscarProducto(int codProducto);
+    
 }
