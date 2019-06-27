@@ -16,6 +16,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ProductosFormBean {
     private ProductoBean productoBean;
     private Producto unProducto;
     private ArrayList<Categoria> categorias;
-    private transient UploadFile archivo = null;
+    private transient UploadedFile archivo = null;
     private int codProd;
     public ProductosFormBean() {
     }
@@ -112,20 +113,6 @@ public class ProductosFormBean {
     }
 
     /**
-     * @return the archivo
-     */
-    public UploadFile getArchivo() {
-        return archivo;
-    }
-
-    /**
-     * @param archivo the archivo to set
-     */
-    public void setArchivo(UploadFile archivo) {
-        this.archivo = archivo;
-    }
-
-    /**
      * @return the codProd
      */
     public int getCodProd() {
@@ -137,5 +124,19 @@ public class ProductosFormBean {
      */
     public void setCodProd(int codProd) {
         this.codProd = codProd;
+    }
+
+    /**
+     * @return the archivo
+     */
+    public UploadedFile getArchivo() {
+        return archivo;
+    }
+
+    /**
+     * @param archivo the archivo to set
+     */
+    public void setArchivo(UploadedFile archivo) {
+        this.archivo = archivo;
     }
 }

@@ -23,6 +23,7 @@ public class ClienteFormBean {
 
     @ManagedProperty(value="#{clienteBean}")
     private ClienteBean clienteBean;
+    private Usuario usuarioBean;   
     private Usuario unUsuario;
     private String nomUs;
     private String apeUs;
@@ -36,11 +37,13 @@ public class ClienteFormBean {
     private Cliente unCliente;
     
     public ClienteFormBean() {
+        unUsuario = new Usuario();
+        unCliente = new Cliente();
         
     }
     public void agregarCliente(){
-        getClienteBean().crearUsuario(unCliente);
-        
+        getClienteBean().crearUsuario(getUnCliente());
+        getUsuarioBean().getClientes().getUsuarioses();
     }
 
     /**
@@ -209,6 +212,20 @@ public class ClienteFormBean {
      */
     public void setUnCliente(Cliente unCliente) {
         this.unCliente = unCliente;
+    }
+
+    /**
+     * @return the usuarioBean
+     */
+    public Usuario getUsuarioBean() {
+        return usuarioBean;
+    }
+
+    /**
+     * @param usuarioBean the usuarioBean to set
+     */
+    public void setUsuarioBean(Usuario usuarioBean) {
+        this.usuarioBean = usuarioBean;
     }
     
 }
