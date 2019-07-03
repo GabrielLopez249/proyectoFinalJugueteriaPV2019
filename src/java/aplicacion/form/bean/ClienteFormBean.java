@@ -9,9 +9,11 @@ import aplicacion.bean.ClienteBean;
 import aplicacion.modelo.dominio.Cliente;
 import aplicacion.modelo.dominio.Usuario;
 import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -43,9 +45,21 @@ public class ClienteFormBean {
     }
     public void agregarCliente(){
         getClienteBean().crearUsuario(getUnCliente());
-        getUsuarioBean().getClientes().getUsuarioses();
+        
+        try{
+            getUsuarioBean().getClientes().getUsuarioses();
+        }
+        catch (Exception e){
+            FacesMessage faceMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR","El usuario no se ha podido crear");
+            FacesContext.getCurrentInstance().addMessage(null, faceMessage);
+        }
+        FacesMessage facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"Felicidades","Usuario creado con exito");
+        FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+        //listarClientes();
+    
     }
-
+    
+    
     /**
      * @return the dni
      */
