@@ -4,27 +4,46 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>jugueteria inicio de sesion</title>
+        <title>Atlantis</title>
+        <style>
+            body{
+                background-image: url("https://colorate.azurewebsites.net/SwatchColor/006655");
+            }      
+        </style>
     </h:head>
-        <h:body>
-            <p:panel header="Acceso al Sistema" footer="PV2019" >
-                <h:form id="frmLogin">
-                    <p:growl id="mensaje" showDetail="false" sticky="false">
-                        <h:panelGrid id="tblLogin" columns="2" cellpadding="5">
-                            <p:outputLabel for="nombreUsuario" value="Nombre de Usuario"/>
-                            <p:inputText id="nombreUsuario" required="true" value="#{loginFormBean.nombreUs}"/>
-                            <p:outputLabel for="passwUsuario" value="Contraseña"/>
-                            <p:password id="passwUsuario" required="true" value="#{loginFormBean.passwUs}"/>
-                            <p:commandButton id="botonValidar" value="Ingresar Usuario" update="frmLogin" action="#{loginFormBean.consultarUsuario()}"/>
-                            
-                        </h:panelGrid>     
-                        <h:panelGrid columns="2">
+        <p:panel id="pnl">
+            <h:form id="frmLogin">
+                <p:growl id="mensaje" showDetail="false" sticky="false">
+                    <h:panelGrid id="tblLogin" columns="8" cellpadding="5">
+                        <p:graphicImage library="images" name="logo.png" height="50"/>
+                        <p:outputLabel for="nombreUsuario" value="Nombre de Usuario"/>
+                        <p:inputText id="nombreUsuario" required="true" value="#{loginFormBean.nombreUs}"/>
+                        <p:outputLabel for="passwUsuario" value="Contraseña"/>
+                        <p:password id="passwUsuario" required="true" value="#{loginFormBean.passwUs}"/>
+                        <p:commandButton id="botonValidar" value="Ingresar Usuario" update="frmLogin" action="#{loginFormBean.consultarUsuario()}"/> 
                         <p:outputLabel value="¿No tiene creada una cuenta?"/>
-                        <p:commandLink value="Crea una nueva cuenta" process="@this" action="registroUsuario"/>
-                    </h:panelGrid>
-                    </p:growl>
-                </h:form>
-            </p:panel>
+                        <p:commandLink value=" Crea una nueva cuenta" process="@this" action="registroUsuario"/>
+                    </h:panelGrid>     
+                </p:growl>
+            </h:form>
+        </p:panel>
+    <h:body>
+        <p:carousel numVisible="1" effect="easeInStrong">
+        <p:tab>
+            <h:panelGrid columns="1" cellpadding="10">
+                <p:graphicImage url="https://wallpaperaccess.com/full/651400.jpg" width="100%"/>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab>
+            <h:panelGrid columns="1" cellpadding="10">
+                <p:graphicImage url="http://pre06.deviantart.net/2858/th/pre/f/2016/241/5/3/civil_war_by_infinitevirtue-dafrccu.jpg" width="125%"/>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab>
+            <h:panelGrid columns="1" cellpadding="10">
+                <p:graphicImage url="https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/5c4f971821c67c18ffe18799/1548719900188/?format=2500w" width="100%"/>
+            </h:panelGrid>
+        </p:tab>
+    </p:carousel>
     </h:body>
 </html>
-

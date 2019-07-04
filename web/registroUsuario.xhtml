@@ -3,41 +3,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">          
-   
+
     <h:head>
         <title>Registro de Usuario</title>
+        <style>
+            body{
+                background-image: url("https://colorate.azurewebsites.net/SwatchColor/006655");
+            }
+        </style>
     </h:head>
     <h:body>
-        <p:panel header="Resgitro de nuevo Usuario" footer="PV2019">
-            
-                    <h:form id="frmAltaPerfil">
-                        <p:panelGrid id="tblAltaPerfil" columns="2">
-                            <p:outputLabel for="txtNombreUser" value="Usuario:"/>
-                            <p:inputText id="txtNombreUser" value="#{clienteFormBean.unUsuario.nombreUsuario}" required="true"/>
-                            <p:outputLabel for="txtPassword" value="Contraseña:"/>
-                            <p:password id="txtPassword" value="#{clienteFormBean.unUsuario.password}" required="true"/>        
-                            <p:outputLabel id="lblNombres" value="Nombres"/>
-                            <p:inputText id="txtNombre" value="#{clienteFormBean.unUsuario.nombres}"/>
-                            <p:outputLabel id="lblApellido" value="Apellidos"/>
-                            <p:inputText id="txtApellidos" value="#{clienteFormBean.unUsuario.apellidos}"/>
-                            <p:outputLabel id="lblDNI" value="DNI"/>
-                            <p:inputText id="txtDNI" value="#{clienteFormBean.dni}"/>
-                            <p:outputLabel id="lblFecNac" value="FechaDeNacimiento"/>
-                            <p:calendar id="txtFecNac" value="#{clienteFormBean.fechaNac}" required="true"/> 
-                            <p:outputLabel id="lblEmail" value="Email"/>
-                            <p:inputText id="txtEmail" value="#{clienteFormBean.email}"/>
-                            <p:outputLabel id="lblTel" value="Telefono"/>
-                            <p:inputText id="txtTel" value="#{clienteFormBean.tell}"/>
-                            <p:outputLabel id="lblDir" value="Direccion"/>
-                            <p:inputText id="txtFedirc" value="#{clienteFormBean.domicilio}"/>
-                            <p:commandButton id="btnAgregarUsuario" value="Agregar" actionListener="#{clienteFormBean.agregarCliente()}" >
-                            <p:confirm header="Pedido se Comfirmacion" message="¿Confirma Agregar Perfil?" icon="ui-1con-alert"/>
-                            </p:commandButton>
-                            <p:commandButton id="btnCerrarAltaPerfil" value="salir" oncomplete="PF('loginJugueteria').hide()"/>
-                        </p:panelGrid>
-                    </h:form>
-                
+        <p:panel header="Registro de nuevo usuario" footer="PV2019">
+            <h:form id="frmAltaPerfil">
+                <p:panelGrid id="tblAltaPerfil" columns="2">
+                    <p:outputLabel for="txtNombreUser" value="Usuario:"/>
+                    <p:inputText id="txtNombreUser" value="#{clienteFormBean.unUsuario.nombreUsuario}" required="true"/>
+                    <p:outputLabel for="txtPassword" value="Contraseña:"/>
+                    <p:password id="txtPassword" value="#{clienteFormBean.unUsuario.password}" required="true"/>        
+                    <p:outputLabel id="lblNombres" value="Nombres"/>
+                    <p:inputText id="txtNombre" value="#{clienteFormBean.unUsuario.nombres}"/>
+                    <p:outputLabel id="lblApellido" value="Apellidos"/>
+                    <p:inputText id="txtApellidos" value="#{clienteFormBean.unUsuario.apellidos}"/>
+                    <p:outputLabel id="lblDNI" value="DNI"/>
+                    <p:inputText id="txtDNI" value="#{clienteFormBean.dni}"/>
+                    <p:outputLabel id="lblFecNac" value="FechaDeNacimiento"/>
+                    <p:calendar id="txtFecNac" value="#{clienteFormBean.fechaNac}" required="true"/> 
+                    <p:outputLabel id="lblEmail" value="Email"/>
+                    <p:inputText id="txtEmail" value="#{clienteFormBean.email}"/>
+                    <p:outputLabel id="lblTel" value="Telefono"/>
+                    <p:inputText id="txtTel" value="#{clienteFormBean.tell}"/>
+                    <p:outputLabel id="lblDir" value="Direccion"/>
+                    <p:inputText id="txtFedirc" value="#{clienteFormBean.domicilio}"/>
+                    <p:commandButton id="btnAgregarUsuario" value="Agregar">
+                        <p:growl id="message" showDetail="true" />
+                        <p:confirm header="Pedido de confirmacion" message="¿Confirma Agregar Perfil?" icon="ui-1con-alert"/>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" actionListener="#{clienteFormBean.agregarCliente()}"/>
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                    </p:confirmDialog>
+                    </p:commandButton>
+                    <p:linkButton outcome="jugueteriaLogin" value="Salir" style="margin-right:20px;"/>
+                </p:panelGrid>
+            </h:form>
         </p:panel>
     </h:body>
 </html>
-
